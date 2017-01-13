@@ -3,7 +3,9 @@ JAVA AWT
 
 
 
-/*
+          
+
+  /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -19,12 +21,12 @@ public class NewJFrame extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    double r;
+    double t;
     public NewJFrame() {
         initComponents();
         Math.random();
-        r = Math. random() * 50 + 1;
-        L13.setText("Convert 527 into binary form and show the steps.");
+        t = Math. random() * 1024 + 1;
+        L13.setText("Convert " +(int)t+" into binary form and show the steps.");
     }
     
 
@@ -73,6 +75,7 @@ public class NewJFrame extends javax.swing.JFrame {
         L10 = new java.awt.Label();
         L11 = new java.awt.Label();
         L12 = new java.awt.Label();
+        T23 = new java.awt.TextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -203,10 +206,11 @@ public class NewJFrame extends javax.swing.JFrame {
                             .addComponent(T8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(T10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(T4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(T15, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(T15, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
                             .addComponent(T17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(T19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(T21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(T21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(T23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(L8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -280,8 +284,13 @@ public class NewJFrame extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(T20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(T21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(T22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(T22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(T23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(L11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -302,13 +311,14 @@ public class NewJFrame extends javax.swing.JFrame {
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {                                        
         // TODO add your handling code here:
         
-        String s = T13.getText();
-        if(s.equals("1000001111"))
+        String s=T13.getText();
+        if(s.equals(Integer.toBinaryString((int)t)))
         {
-            L7.setText("Correct");
+            L7.setText("Correct!");
         }
         else
             L7.setText("Try again!");
+        
     }                                       
 
     private void T1ActionPerformed(java.awt.event.ActionEvent evt) {                                   
@@ -317,9 +327,9 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void T2KeyReleased(java.awt.event.KeyEvent evt) {                               
         // TODO add your handling code here:
-        String s=T1.getText();
-        String r=T2.getText();
-        if(s.equals("527")&&r.equals("1"))
+        int s=Integer.parseInt(T1.getText());
+        int r=Integer.parseInt(T2.getText());
+        if(s==(int)t&&r==s%2)
         {
             L1.setText("Correct!");
         }
@@ -330,9 +340,10 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void T4KeyReleased(java.awt.event.KeyEvent evt) {                               
         // TODO add your handling code here:
-        String s=T3.getText();
-        String r=T4.getText();
-        if(s.equals("263")&&r.equals("1"))
+        int s=Integer.parseInt(T3.getText());
+        int r=Integer.parseInt(T4.getText());
+        int e=Integer.parseInt(T1.getText());
+        if(s==e/2&&r==s%2)
         {
             L2.setText("Correct!");
         }
@@ -342,9 +353,10 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void T6KeyReleased(java.awt.event.KeyEvent evt) {                               
         // TODO add your handling code here:
-        String s=T5.getText();
-        String r=T6.getText();
-        if(s.equals("131")&&r.equals("1"))
+        int s=Integer.parseInt(T5.getText());
+        int r=Integer.parseInt(T6.getText());
+        int e=Integer.parseInt(T3.getText());
+        if(s==e/2&&r==s%2)
         {
             L3.setText("Correct!");
         }
@@ -354,9 +366,10 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void T8KeyReleased(java.awt.event.KeyEvent evt) {                               
         // TODO add your handling code here:
-        String s=T7.getText();
-        String r=T8.getText();
-        if(s.equals("65")&&r.equals("1"))
+        int s=Integer.parseInt(T7.getText());
+        int r=Integer.parseInt(T8.getText());
+        int e=Integer.parseInt(T5.getText());
+        if(s==e/2&&r==s%2)
         {
             L4.setText("Correct!");
         }
@@ -366,9 +379,10 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void T10KeyReleased(java.awt.event.KeyEvent evt) {                                
         // TODO add your handling code here:
-        String s=T9.getText();
-        String r=T10.getText();
-        if(s.equals("32")&&r.equals("0"))
+       int s=Integer.parseInt(T9.getText());
+        int r=Integer.parseInt(T10.getText());
+        int e=Integer.parseInt(T7.getText());
+        if(s==e/2&&r==s%2)
         {
             L5.setText("Correct!");
         }
@@ -378,9 +392,10 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void T12KeyReleased(java.awt.event.KeyEvent evt) {                                
         // TODO add your handling code here:
-        String s=T11.getText();
-        String r=T12.getText();
-        if(s.equals("16")&&r.equals("0"))
+        int s=Integer.parseInt(T11.getText());
+        int r=Integer.parseInt(T12.getText());
+        int e=Integer.parseInt(T9.getText());
+        if(s==e/2&&r==s%2)
         {
             L6.setText("Correct!");
         }
@@ -390,9 +405,10 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void T15KeyReleased(java.awt.event.KeyEvent evt) {                                
         // TODO add your handling code here:
-        String s=T14.getText();
-        String r=T15.getText();
-        if(s.equals("8")&&r.equals("0"))
+        int s=Integer.parseInt(T14.getText());
+        int r=Integer.parseInt(T15.getText());
+        int e=Integer.parseInt(T11.getText());
+        if(s==e/2&&r==s%2)
         {
             L8.setText("Correct!");
         }
@@ -402,9 +418,10 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void T17KeyReleased(java.awt.event.KeyEvent evt) {                                
         // TODO add your handling code here:
-        String s=T16.getText();
-        String r=T17.getText();
-        if(s.equals("4")&&r.equals("0"))
+        int s=Integer.parseInt(T16.getText());
+        int r=Integer.parseInt(T17.getText());
+        int e=Integer.parseInt(T14.getText());
+        if(s==e/2&&r==s%2)
         {
             L9.setText("Correct!");
         }
@@ -414,9 +431,10 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void T19KeyReleased(java.awt.event.KeyEvent evt) {                                
         // TODO add your handling code here:
-        String s=T18.getText();
-        String r=T19.getText();
-        if(s.equals("2")&&r.equals("0"))
+        int s=Integer.parseInt(T18.getText());
+        int r=Integer.parseInt(T19.getText());
+        int e=Integer.parseInt(T16.getText());
+        if(s==e/2&&r==s%2)
         {
             L10.setText("Correct!");
         }
@@ -426,9 +444,10 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void T21KeyReleased(java.awt.event.KeyEvent evt) {                                
         // TODO add your handling code here:
-        String s=T20.getText();
-        String r=T21.getText();
-        if(s.equals("1")&&r.equals("1"))
+        int s=Integer.parseInt(T20.getText());
+        int r=Integer.parseInt(T21.getText());
+        int e=Integer.parseInt(T18.getText());
+        if(s==e/2&&r==s%2)
         {
             L11.setText("Correct!");
         }
@@ -511,6 +530,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private java.awt.TextField T20;
     private java.awt.TextField T21;
     private java.awt.TextField T22;
+    private java.awt.TextField T23;
     private java.awt.TextField T3;
     private java.awt.TextField T4;
     private java.awt.TextField T5;
@@ -521,3 +541,4 @@ public class NewJFrame extends javax.swing.JFrame {
     private java.awt.Button button1;
     // End of variables declaration                   
 }
+
